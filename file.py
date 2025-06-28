@@ -8,18 +8,11 @@ def norma(text):
     return re.sub(r'\s+', ' ', str(text)).strip()
 
 # Load data1 (main table)
-data1 = pd.read_excel(
-    r"C:\Users\PC\Downloads\Telegram Desktop\Delib_ING2-S3_24-25.xlsx",
-    skiprows=4
-)
+data1 = pd.read_excel("data/Delib_ING2-S3_24-25.xlsx", skiprows=4)
 normalized_data1 = data1.fillna('').applymap(normalize)
 
 # Load data2 (name list)
-data2 = pd.read_excel(
-    r"C:\Users\PC\Downloads\rattrappage.xlsx",
-    skiprows=4,
-    header=None
-)
+data2 = pd.read_excel("data/rattrapage.xlsx", skiprows=4, header=None)
 
 # Combine nom + prénom (adjust column indices if needed)
 data2['FullName'] = data2[1].astype(str) + ' ' + data2[2].astype(str)
